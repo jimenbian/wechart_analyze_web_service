@@ -2,7 +2,7 @@
 import re
 def Get_data(filename):
   f1=open('static/Uploads/%s.txt'%(filename))
-  f2=open('static/manage_upload/%s.txt'%(filename),'a')
+  f2=open('static/manage_upload/%s.txt'%(filename),'w')
   
   j=0#行数记录
   for line in f1.readlines():
