@@ -2,6 +2,8 @@ import os
 from flask import Flask, request, redirect, url_for
 from werkzeug import secure_filename
 from flask import send_from_directory
+import get_data
+import get_user
 
 UPLOAD_FOLDER = 'static/Uploads/'
 ALLOWED_EXTENSIONS = set(['txt'])
@@ -32,8 +34,10 @@ def upload_file():
     '''
 @app.route('/Uploads/<filename>')
 def uploaded_file(filename):
-	
-    return send_from_directory(app.config['UPLOAD_FOLDER'],
+  name=filename.rsplit('.', 1)[0]
+  get_data.Get_data(name)
+  get_user.put_out(name)
+  return send_from_directory('static/result/',
                                filename)
 
 if __name__ == '__main__':
