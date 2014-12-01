@@ -39,6 +39,8 @@ def uploaded_file(filename):
   get_user.put_out(name)
   return send_from_directory('static/result/',
                                filename)
+from bae.core.wsgi import WSGIApplication
+application = WSGIApplication(app)
 
-if __name__ == '__main__':
-    app.run()
+# if __name__ == '__main__':
+#     app.run()
